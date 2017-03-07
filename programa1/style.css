@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+.dialog-text{
+	margin: auto;
+	width: 60%;
+	border: 3px solid #2F7A96;
+	padding: 10px;
+}
+
+.imgborder{
+	border-radius: 8px;
+}
+
+.container{
+	margin: 0 auto;
+	max-width: 1280px;
+	width: 90%;
+}
+
+.tableborder{
+	border-radius: 10px;
+}
