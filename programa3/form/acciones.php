@@ -10,26 +10,8 @@
 	if(isset($_POST['editar'])){
 		$e = $_POST{'editar'};
 		
-?>
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Actualizar datos</title>
-	</head>
-
-<body>
-<p>Aqui se va a actualizar la información y seguir</p>
-<form action="../index.php">
-	<button>Seguir</button>
-</form>
-
-</body>
-
-</html>
-
-
-<?php		
+		header("Location: ./update.php?mensaje=$e");
+		die();		
 		
 	}
 	//The second condition from index
@@ -71,6 +53,13 @@
 		//******Return to the index, where are all the datas*****
 		header('Location: ../index.php');
 		die();
+		
+		//Update cliente datos
+	}elseif(isset($_POST['clSave'])){
+		foreach ($_POST['clArr'] as $key => $value){
+			echo $value . "<br />";
+		}
+		
 	}else{
 		header('Location: ../index.php');
 		die();

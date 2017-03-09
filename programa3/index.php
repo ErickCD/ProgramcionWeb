@@ -14,7 +14,7 @@
 	
 </head>
 
-<body class="fondo">
+<body>
 
 <nav class="nav-title">ITSTA</nav>
 
