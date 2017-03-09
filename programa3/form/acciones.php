@@ -56,9 +56,69 @@
 		
 		//Update cliente datos
 	}elseif(isset($_POST['clSave'])){
+		$numero = $_POST{'clSave'};
+		$arrCl = $_POST['clArr'];
+		
+		/*
+		//Prueba de funcionalidad
+		echo "UPDATE `practicas`.`pr_cliente` SET `cl_nombre`='".$arrCl[0]."', `cl_apellidoP`='".$arrCl[1]."', `cl_apellidoM`='".$arrCl[2]."', `cl_rfc`='".$arrCl[3]."' WHERE `cl_noCliente`='".$numero."';";
+		*/
+		
+		$updateCl = "UPDATE `practicas`.`pr_cliente` SET `cl_nombre`='".$arrCl[0]."', `cl_apellidoP`='".$arrCl[1]."', `cl_apellidoM`='".$arrCl[2]."', `cl_rfc`='".$arrCl[3]."' WHERE `cl_noCliente`='".$numero."';";
+		
+		$user->queryDB($updateCl);		
+		
+		header("Location: ./update.php?mensaje=$numero");
+		die();
+		
+		
+		/* Pruebas de recorrido del arreglo
 		foreach ($_POST['clArr'] as $key => $value){
 			echo $value . "<br />";
 		}
+		echo "el numero de cliente es: " .$numero;
+		*/
+		
+	}elseif(isset($_POST['coSave'])){
+		$numero = $_POST{'coSave'};
+		$coArr = $_POST['coArr'];
+		
+		// Una impresión de prueba
+		/*
+		echo "UPDATE `practicas`.`pr_cotitular` SET `co_nombreCotitular`='".$coArr[0]."', `co_apellidoP`='".$coArr[1]."', `co_apellidoM`='".$coArr[2]."', `co_rfc`='".$coArr[3]."', `co_parentesco`='".$coArr[4]."' WHERE `cl_noCliente`='".$numero."';";
+		*/
+		
+		
+		$updateCo = "UPDATE `practicas`.`pr_cotitular` SET `co_nombreCotitular`='".$coArr[0]."', `co_apellidoP`='".$coArr[1]."', `co_apellidoM`='".$coArr[2]."', `co_rfc`='".$coArr[3]."', `co_parentesco`='".$coArr[4]."' WHERE `cl_noCliente`='".$numero."';";
+		
+		$user->queryDB($updateCo);		
+		
+		header("Location: ./update.php?mensaje=$numero");
+		die();
+		
+		/*
+		foreach ($_POST['coArr'] as $key => $value){
+			echo $value . "<br />";
+		}
+		*/
+		
+	}elseif(isset($_POST['cuSave'])){
+		$numero = $_POST{'cuSave'};
+		$cuArr = $_POST['cuArr'];
+		
+		
+		$updateCu = "UPDATE `practicas`.`pr_cuenta` SET `cu_tipoCuenta`='".$cuArr[0]."', `cu_fechaApertura`='".$cuArr[1]."', `cu_saldoActual`='".$cuArr[2]."' WHERE `cl_noCliente`='".$numero."';";
+		
+		$user->queryDB($updateCu);		
+		
+		header("Location: ./update.php?mensaje=$numero");
+		die();
+		
+		/*
+		foreach ($_POST['cuArr'] as $key => $value){
+			echo $value . "<br />";
+		}
+		*/
 		
 	}else{
 		header('Location: ../index.php');

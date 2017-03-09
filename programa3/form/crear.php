@@ -39,9 +39,7 @@
         <td width="173"><input type="number" name="arrc[]" id="arrc[]"></td>
       </tr>
       <tr>
-        <td><label for="arr[]">Nombre cliente: 
-          
-        </label></td>
+        <td><label for="arr[]">Nombre cliente: </label></td>
         <td><input name="arr[]" type="text" required="required" id="arr[]"></td>
         <td><label for="arrd[]">Tipo de cuenta:</label></td>
         <td><input name="arrd[]" type="text" required="required" id="arrd[]"></td>
