@@ -4,7 +4,7 @@ $mensaje = $_GET["mensaje"];
 require "../inc/connectionDB.inc";
 require "../inc/operationDB.inc";
 	
-$user = new operationDB('practicas', 'erick', 'localhost', 'root');
+$user = new operationDB();
 
 ?>
 
@@ -14,12 +14,21 @@ $user = new operationDB('practicas', 'erick', 'localhost', 'root');
 <head>
 <meta charset="utf-8">
 <title>Documento sin título</title>
+
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
+<link href="jQueryAssets/">
 </head>
 
-<body>
+<body class="ui-helper-reset ">
+
 <form action="../index.php">
-  		<button type="submit">Salir</button>
+  		<button id="btnSalir" type="submit">Salir</button>
 </form>
+
 <form method="post" action="acciones.php">
  
   <table width="800" align="center">
@@ -162,6 +171,15 @@ $user = new operationDB('practicas', 'erick', 'localhost', 'root');
       </tr>
     </tbody>
   </table>
+  
 </form>
+
+<!-- Inicialización del boton -->
+<script type="text/javascript">
+$(function() {
+	$( "#btnSalir" ).button(); 
+});
+</script>
+
 </body>
 </html>

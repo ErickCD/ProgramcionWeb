@@ -3,15 +3,11 @@ class connectionDB
 {
  private $host = "localhost";
  private $user = "root";
- private $password = "";
- private $dataBase = "";
+ private $password = "erick";
+ private $dataBase = "practicas";
  private $connection;
 
-function connectionDB($dataBase,$password,$host,$user){
-  $this->dataBase = $dataBase;
-  $this->password = $password;
-  $this->host = $host;
-  $this->user = $user;
+function connectionDB(){
   $this->connectDataBase();
 }
 
@@ -25,12 +21,12 @@ function setUser($user = "root")
  $this->user=$user;
 }
 
-function setPassword($password)
+function setPassword($password = "erick")
 {
  $this->password=$password;
 }
 
-function setDataBase($dataBase)
+function setDataBase($dataBase = "practicas")
 {
  $this->dataBase=$dataBase;
 }

@@ -2,7 +2,7 @@
 	require "../inc/connectionDB.inc";
 	require "../inc/operationDB.inc";
 	
-	$user = new operationDB('practicas', 'erick', 'localhost', 'root');
+	$user = new operationDB();
 	
 	
 

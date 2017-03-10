@@ -3,8 +3,8 @@ class operationDB extends connectionDB
 {
 private $result;
 
-  function operationDB($dataBase,$password,$host,$user){
-     connectionDB::connectionDB($dataBase,$password,$host,$user);
+  function operationDB(){
+     connectionDB::connectionDB();
   }
 
 public function queryDB($sql)

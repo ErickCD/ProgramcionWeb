@@ -8,15 +8,24 @@
 	require "../inc/connectionDB.inc";
 	require "../inc/operationDB.inc";
 	
-	$user = new operationDB('practicas', 'erick', 'localhost', 'root');
+	$user = new operationDB();
 ?>
 
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
 </head>
 
 <body>
-  	<form action="../index.php">
-  		<button type="submit">Salir</button>
-	</form>
+ 	<div>
+ 	
+ 	<div>
+  		<form action="../index.php">
+  			<button id="salir" type="submit">Salir</button>
+		</form>
+	</div>
   
 	  <form name="form_save" id="form_save" method="post" action="acciones.php" >
 	    
@@ -105,5 +114,12 @@
 	  	
 	  	
 </form>
+<script type="text/javascript">
+$(function() {
+	$( "#guardar" ).button(); 
+	$( "#salir" ).button(); 
+});
+      </script>
+</div>
 </body>
 </html>

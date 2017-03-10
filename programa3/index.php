@@ -8,10 +8,14 @@
 	require "inc/connectionDB.inc";
 	require "inc/operationDB.inc";
 	
-	$user = new operationDB('practicas', 'erick', 'localhost', 'root');
+	$user = new operationDB();
 ?>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
 </head>
 
 <body>
@@ -29,7 +33,7 @@
 ?>
 
 <form name="form1" id="form1" method="post" action="form/acciones.php">
-	<table class="tableborder" border="1">
+	<table class="tableborder" border="1" align="center">
   		<tbody>
     		<tr>
       		<td width="96" >Número_cliente</td>
@@ -58,24 +62,30 @@
 		echo "<td>".$fila["co_nombreCotitular"]."</td>";
 		
 		
-		echo "<td align=\"center\"><button  type=\"submit\" name=\"editar\" id=\"editar\" value=\"".$fila["cl_noCliente"]."\">Editar</button></td>";
-		echo "<td align=\"center\"><button type=\"submit\" name=\"borrar\" id=\"borrar\" value=\"".$fila["cl_noCliente"]."\">Borrar</button></td>";
+		echo "<td align=\"center\"><button  type=\"submit\" name=\"editar\" id=\"editar\" value=\"".$fila["cl_noCliente"]."\"><img src=\"img/actualizar.jpg\"/></button></td>";
+		echo "<td align=\"center\"><button type=\"submit\" name=\"borrar\" id=\"borrar\" value=\"".$fila["cl_noCliente"]."\"><img src=\"img/eliminar.jpg\"/></button></td>";
 		
 		
 		echo "\t</tr>\n";
 	}
     
 ?>
+
 	</table>
 </form>
 
 
 <form action="form/crear.php">
-  <button type="submit">Crear nuevo</button>
+  <button name="btnCrear" id="btnCrear" type="submit" >Crear nuevo</button>
 </form>
 
 
 </div>
+<script type="text/javascript">
+$(function() {
+	$( "#btnCrear" ).button(); 
+});
+</script>
 </body>
 
 </html>
