@@ -15,7 +15,7 @@
 		
 	}
 	//The second condition from index
-	elseif(isset($_POST['borrar'])){
+	elseif(isset($_get['borrar'])){
 		$del = $_POST{'borrar'};
 		
 		//Query to do
@@ -23,6 +23,7 @@
 		
 		//Do query to db
 		$user->queryDB($query);
+		$user->closedb();
 		header('Location: ../index.php');
 		die();
 	}
@@ -50,6 +51,8 @@
 		//Launch the second search
 		$user->queryDB($co);
 		
+		$user->closedb();
+		
 		//******Return to the index, where are all the datas*****
 		header('Location: ../index.php');
 		die();
@@ -67,6 +70,8 @@
 		$updateCl = "UPDATE `practicas`.`pr_cliente` SET `cl_nombre`='".$arrCl[0]."', `cl_apellidoP`='".$arrCl[1]."', `cl_apellidoM`='".$arrCl[2]."', `cl_rfc`='".$arrCl[3]."' WHERE `cl_noCliente`='".$numero."';";
 		
 		$user->queryDB($updateCl);		
+		
+		$user->closedb();
 		
 		header("Location: ./update.php?mensaje=$numero");
 		die();
@@ -93,6 +98,8 @@
 		
 		$user->queryDB($updateCo);		
 		
+		$user->closedb();
+		
 		header("Location: ./update.php?mensaje=$numero");
 		die();
 		
@@ -109,7 +116,9 @@
 		
 		$updateCu = "UPDATE `practicas`.`pr_cuenta` SET `cu_tipoCuenta`='".$cuArr[0]."', `cu_fechaApertura`='".$cuArr[1]."', `cu_saldoActual`='".$cuArr[2]."' WHERE `cl_noCliente`='".$numero."';";
 		
-		$user->queryDB($updateCu);		
+		$user->queryDB($updateCu);
+		
+		$user->closedb();
 		
 		header("Location: ./update.php?mensaje=$numero");
 		die();

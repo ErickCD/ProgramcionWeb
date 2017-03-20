@@ -27,8 +27,9 @@ if ($rowsDB = mysql_fetch_array($this->getResult(),MYSQL_ASSOC))
 }
 
 }
-
-
+public function closedb(){
+	$this->disconnectDataBase();
+}
 }
 
 ?>

@@ -14,19 +14,38 @@
 <link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
 <link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
 <link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
 <script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		$("#btnsalir").on("click", function(){
+			$("#tabla").slideToggle("slow");
+		});
+	});
+</script>
+
 </head>
 
-<body>
- 	<div>
+<body background="../img/background.jpg">
+ 	<div class="container">
  	
- 	<div>
+ 	<div class="row">
+
+	<div style="display: inline-block">
+		<a style="color: white; font-size: 16px;" ><strong>ITSTA</strong></a>
+	</div>
+	
+ 	<div align="right" style="font-size: 12px; display: inline-block; width: 95%;">
   		<form action="../index.php">
-  			<button id="salir" type="submit">Salir</button>
+  			<button id="btnsalir" type="submit">Salir</button>
 		</form>
 	</div>
+	
+	</div>
   
+  <div id="tabla" style="color: white; font-size: 16px;">
 	  <form name="form_save" id="form_save" method="post" action="acciones.php" >
 	    
 	    <table width="980" border="0" align="center">
@@ -85,6 +104,8 @@
 			while ($fila = $user->getRowsDB()) {
 				echo "<option value=\"".$fila["su_noSucursal"]."\">".$fila["su_nombreSucursal"]."</option>\n";
 			}
+			
+			$user->closedb();
 		 ?>
         </select></td>
         <td><label for="arrc[]">RFC cotitular:</label></td>
@@ -114,12 +135,15 @@
 	  	
 	  	
 </form>
+</div>
+
 <script type="text/javascript">
-$(function() {
-	$( "#guardar" ).button(); 
-	$( "#salir" ).button(); 
-});
-      </script>
+	$(function() {
+		$( "#guardar" ).button(); 
+		$( "#btnsalir" ).button(); 
+	});
+</script>
+
 </div>
 </body>
 </html>

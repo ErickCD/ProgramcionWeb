@@ -13,25 +13,56 @@ $user = new operationDB();
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title>Actualizar datos</title>
 
 <link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
 <link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
 <link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
 <script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
-<link href="jQueryAssets/">
+
+<script>
+	$(document).ready(function(){
+		$("#clSave").on("click", function(){
+			$("#tablaGeneral").slideToggle("slow");
+		});
+		$("#coSave").on("click", function(){
+			$("#tablaGeneral").slideToggle("slow");
+		});
+		$("#cuSave").on("click", function(){
+			$("#tablaGeneral").slideToggle("slow");
+		});
+		$("#btnSalir").on("click", function(){
+			$("#tablaGeneral").slideToggle("slow");
+		});
+	});
+</script>
+
 </head>
 
-<body class="ui-helper-reset ">
+<body background="../img/background.jpg">
 
-<form action="../index.php">
-  		<button id="btnSalir" type="submit">Salir</button>
-</form>
+<div class="container">
 
+	<div class="row">
+
+	<div style="display: inline-block">
+		<a style="color: white; font-size: 16px;" ><strong>ITSTA</strong></a>
+	</div>
+	
+ 	<div align="right" style="font-size: 12px; display: inline-block; width: 95%;">
+  		<form action="../index.php">
+  			<button id="btnSalir" type="submit">Salir</button>
+		</form>
+	</div>
+	
+	</div>
+	
+	<div id="tablaGeneral">
 <form method="post" action="acciones.php">
  
-  <table width="800" align="center">
+  <table width="800" align="center" style="color: white;">
    
    <?php
 		//Crear el query
@@ -164,6 +195,8 @@ $user = new operationDB();
               echo "<td><button  type=\"submit\" name=\"cuSave\" id=\"cuSave\" value=\"".$mensaje."\">Guardar</button>";
               echo "</td>";
             echo "</tr>";
+			 
+			 $user->closedb();
             ?>
           </tbody>
         </table></td>
@@ -173,11 +206,16 @@ $user = new operationDB();
   </table>
   
 </form>
+</div>
+</div>
 
 <!-- Inicialización del boton -->
 <script type="text/javascript">
 $(function() {
 	$( "#btnSalir" ).button(); 
+	$("#cuSave").button();
+	$("#clSave").button();
+	$("#coSave").button();
 });
 </script>
 

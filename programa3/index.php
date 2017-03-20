@@ -10,30 +10,65 @@
 	
 	$user = new operationDB();
 ?>
-	
-<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
-<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
-<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
-<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
-<script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
+
+<link href="./form/jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="./form/jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="./form/jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+<link href="./css/style.css" rel="stylesheet" type="text/css">
+
+<link href="./js/jquery-ui.js" rel="stylesheet" type="text/javascript">
+<link href="./js/jquery-ui.min.js" rel="stylesheet" type="text/javascript">
+
+<script src="./form/jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="./form/jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
+
+
+
+<script>
+	$(document).ready(function(){
+		$("#btnEf").on("click", function(){
+			$("#effect").slideToggle("slow");
+		});
+		$("#editar").on("click", function(){
+			$("#effect").slideToggle("slow");
+		});
+		$("#btnCrear").on("click", function(){
+			$("#effect").slideToggle("slow");
+		});
+	});
+</script>
+
 </head>
 
-<body>
-
-<nav class="nav-title">ITSTA</nav>
+<body id="body" background="img/background.jpg">
 
 <div class="container">
 
-<h1>Control de zona bancario.</h1>
+<div class="row">
+
+<div style="display: inline-block">
+	<a style="color: white; font-size: 16px;" ><strong>ITSTA</strong></a>
+</div>
+
+<div align="right" style="display: inline-block; font-size: 12px; width: 95%;">
+	<form action="form/crear.php">
+		<button name="btnCrear" id="btnCrear" type="submit" >Crear nuevo usuario</button>
+	</form>
+</div>
+
+</div>
+
+<p align="center" style="color: #FFFFFF; font-size: 30px;"><strong>Control de zona bancario.</strong></p>
 
 <?php
 	$query = 'SELECT cl.cl_noCliente, cl.cl_nombre, cu.su_noSucursal, su.su_nombreSucursal, cu.cu_noCuenta, cu.cu_tipoCuenta,  cu.cu_saldoActual, co_nombreCotitular FROM practicas.pr_cliente cl join practicas.pr_cuenta cu on cl.cl_noCliente = cu.cl_noCliente join practicas.pr_sucursal su on cu.su_noSucursal = su.su_noSucursal join practicas.pr_cotitular co on cl.cl_noCliente = co.cl_noCliente order by cl.cl_nombre asc;';
 	
 	$user->queryDB($query);
 ?>
-
-<form name="form1" id="form1" method="post" action="form/acciones.php">
-	<table class="tableborder" border="1" align="center">
+<div id="effect" style="color: white">
+ <form name="form1" id="form1" method="post" action="form/acciones.php"> 
+	<!-- <form name="form1" id="form1"> -->
+	<table align="center">
   		<tbody>
     		<tr>
       		<td width="96" >Número_cliente</td>
@@ -68,24 +103,30 @@
 		
 		echo "\t</tr>\n";
 	}
-    
+    $user->closedb();
 ?>
-
+	<!-- <button onClick="javascript:borrar();"></button> -->
 	</table>
 </form>
-
-
-<form action="form/crear.php">
-  <button name="btnCrear" id="btnCrear" type="submit" >Crear nuevo</button>
-</form>
-
-
 </div>
+
+<button onClick="style">boton de prueba</button>
+
+<br><br>
+<button id="btnEf" name="btnEf">Ocultar Tabla</button>
+</div>
+
 <script type="text/javascript">
-$(function() {
-	$( "#btnCrear" ).button(); 
-});
+	$(function(){
+		$("#btnCrear").button();
+		$("#btnEf").button();
+	});
+	
+	$('input[type="submit"]').click(function(){
+         $(this).addClass('red');
+	});
 </script>
+
 </body>
 
 </html>

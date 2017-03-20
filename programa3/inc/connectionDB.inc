@@ -70,8 +70,7 @@ function connectDataBase()
   //echo "Result select data base -> " . $result;
 }
 
-function disconnectDataBase()
-{
+function disconnectDataBase(){
   mysql_close($this->getConnection());
 }
 
