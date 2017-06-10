@@ -15,10 +15,30 @@ $user = new operationDB();
 <meta charset="utf-8">
 <title>Actualizar datos</title>
 
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!--Import materialize.css-->
-<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-<!--Let browser know website is optimized for mobile-->
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		$("#clSave").on("click", function(){
+			$("#tablaGeneral").slideToggle("slow");
+		});
+		$("#coSave").on("click", function(){
+			$("#tablaGeneral").slideToggle("slow");
+		});
+		$("#cuSave").on("click", function(){
+			$("#tablaGeneral").slideToggle("slow");
+		});
+		$("#btnSalir").on("click", function(){
+			$("#tablaGeneral").slideToggle("slow");
+		});
+	});
+</script>
+
 </head>
 
 <body background="../img/background.jpg">

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head><title>Etiquetas div </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="./css/page.css" type="text/css" media="all">
+
+
+<script languaje="javaScript" type="text/javascript">
+  
+ 
+</script>
+</head>
+<body>
+
+<div class="main">
+
+<div class="cabecera">
+<h1>Cabecera</h1> 
+</div> 
+
+<div class="opciones"> 
+  <div class="menu_lateral"> Registrar clientes </div>
+  <div class="menu_lateral"> Detalles </div>
+</div>
+
+
+<div class="contenido"> 
+
+<form name="dataClient" method="post" action="php/Registrar.php">
+<table id="Client" border="2">
+<caption> Datos del cliente </caption>
+<tr>
+<td> Numero de cliente </td>
+<td> <input type="number" name="client[]" /> </td>
+</tr>
+<tr>
+<td> Nombre </td>
+<td> <input type="text" name="client[]" /> </td>
+</tr>
+<tr>
+<td> Apellido paterno </td>
+<td> <input type="text" name="client[]" /> </td>
+</tr>
+<tr>
+<td> Apellido materno </td>
+<td> <input type="text" name="client[]" /> </td>
+</tr>
+<tr>
+<td> RFC </td>
+<td> <input type="text" name="client[]" /> </td>
+</tr>
+</table> 
+
+<table id="Account" border="2">
+<caption> Datos de cuenta </caption>
+<tr>
+<td> Numero de cuenta </td>
+<td> <input type="number" name="account[]" /> </td>
+</tr>
+<tr>
+<td> Tipo de cuenta </td>
+<td> <input type="text" name="account[]" /> </td>
+</tr>
+<tr>
+<td> Fecha de apertura </td>
+<td> <input type="text" name="account[]" /> </td>
+</tr>
+<tr>
+<td> Saldo inicial </td>
+<td> <input type="number" name="account[]" /> </td>
+</tr>
+<tr>
+<td> Sucursal </td>
+<td> Banamex</td>
+</tr>
+</table>
+
+<table id="Coticular" border="2">
+<caption> Datos del coticular </caption>
+<tr>
+<td> Numero de coticular </td>
+<td> <input type="number" name="Coticular[]" /> </td>
+</tr>
+<tr>
+<td> Nombre coticular </td>
+<td> <input type="text" name="Coticular[]" /> </td>
+</tr>
+<tr>
+<td> Apellido paterno </td>
+<td> <input type="text" name="Coticular[]" /> </td>
+</tr>
+<tr>
+<td> Apellido materno </td>
+<td> <input type="text" name="Coticular[]" /> </td>
+</tr>
+<tr>
+<td> RFC </td>
+<td> <input type="text" name="Coticular[]" /> </td>
+</tr>
+<tr>
+<td> Parentesco </td>
+<td> <input type="text" name="Coticular[]" /> </td>
+</tr>
+</table>
+
+<input type="submit" value="Registrar cliente" name="bntSend" />
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

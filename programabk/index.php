@@ -108,19 +108,9 @@
 	<!-- <button onClick="javascript:borrar();"></button> -->
 	</table>
 </form>
-
-<?php 
-	function alerta(){
-      //un alert
-      alertify.alert("<b>Blog Reaccion Estudio</b> probando Alertify", function () {
-            //aqui introducimos lo que haremos tras cerrar la alerta.
-            //por ejemplo -->  location.href = 'http://www.google.es/';  <-- Redireccionamos a GOOGLE.
-      });
-}
-?>
 </div>
 
-<button onClick="alerta()">boton de prueba</button>
+<button onClick="style">boton de prueba</button>
 
 <br><br>
 <button id="btnEf" name="btnEf">Ocultar Tabla</button>

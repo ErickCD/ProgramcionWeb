@@ -1,0 +1,64 @@
+
+<form id="form1" name="form1" method="post" action="php/insertar.php">
+<table width="302" border="1">
+  <tr>
+    <td>
+      <label>Nombre</label>
+    </td>
+    <td width="106"><input type="text" name="nombre" id="txtName"/></td>
+  </tr>
+  <tr>
+    <td><label>Apellido paterno</label></td>
+    <td><input type="text" name="a_paterno" id="txtAPaterno"/></td>
+  </tr>
+  <tr>
+    <td><label>Apellido materno</label></td>
+    <td><input type="text" name="a_materno" id="txtAMaterno"/></td>
+  </tr>
+  <tr>
+    <td><label for="txt2">RFC</label></td>
+    <td><input type="text" name="rfc" id="txtRFC" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="bntSend" id="bntSend" value="Registrar" /></td>
+  </tr>
+</table>
+  <input type="hidden" name="typeOperation" value="insert" id="txtTypeOperation"/>
+  <input type="hidden" name="identificador" value="" id="txtIdentifier"/>
+</form>
+
+<div style="background:gray;color:black;min">
+
+<form id="form2" name="form2" method="post" action="php/insertar.php">
+<input type="hidden" name="perro" />
+
+<table width="500" border="1" id="tdata">
+  <tr style="">
+    <th>Identificador</th>
+    <th>Nombre</th>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+    <th>RFC</th>
+    <th>Borrar</th>
+    <th>Editar</th>
+  </tr>
+
+
+
+<?php
+   $usuario->queryDB("select * from pr_cliente;");
+    static $cont = 1;
+    while ($fila = $usuario->getRowsDB()) {
+     echo "<tr>\n<td>".$fila["cl_noCliente"]."</td>";
+     echo "\n<td>".$fila["cl_nombre"]."</td>";
+     echo "\n<td>".$fila["cl_apellidoP"]."</td>";
+     echo "\n<td>".$fila["cl_apellidoM"]."</td>";
+     echo "\n<td>".$fila["cl_rfc"]."</td>";
+     echo "\n<td><input type=\"button\" id=\"bntSend\" name=\"".$fila["cl_noCliente"]."\" class=\"button_round\" onClick=\"operation(".$cont. ",'delete')\" value=\"Borrar\" /></td>";
+     echo "\n<td><input type=\"button\" id=\"bntEdit\" name=\"".$fila["cl_noCliente"]."\" class=\"button_round\" onClick=\"operation(".$cont. ",'edit')\" value=\"Editar\" /></td></tr>";
+     $cont = $cont + 1;
+  }
+?>
+</table>
+</form>
